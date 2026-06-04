@@ -27,7 +27,8 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/"
+            "Database\\Seeders\\": "database/seeders/",
+            "L_Lib\\": "library/hahaha_laravel_lib/"
         }
     },
     "autoload-dev": {
