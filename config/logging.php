@@ -67,7 +67,39 @@ return [
 
         'daily' => [
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'path' => storage_path(
+                'logs/origin/laravel_'.now()->format('Y_m_d').'.log'
+            ),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
+        'log_hahaha' => [
+            'driver' => 'daily',
+            'path' => storage_path(
+                'logs/hahaha/hahaha_'.now()->format('Y_m_d').'.log'
+            ),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
+        'log_error' => [
+            'driver' => 'daily',
+            'path' => storage_path(
+                'logs/error/error_'.now()->format('Y_m_d').'.log'
+            ),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => env('LOG_DAILY_DAYS', 14),
+            'replace_placeholders' => true,
+        ],
+
+        'log_other' => [
+            'driver' => 'daily',
+            'path' => storage_path(
+                'logs/other/other_'.now()->format('Y_m_d').'.log'
+            ),
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => env('LOG_DAILY_DAYS', 14),
             'replace_placeholders' => true,

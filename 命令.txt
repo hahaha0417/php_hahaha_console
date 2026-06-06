@@ -8,6 +8,11 @@ php artisan hahaha:install:hahaha_octane_codex:git:clone_laravel_lib "C:\web\web
 
 php artisan hahaha:install:hahaha_octane_codex:composer:add_l_lib_autoload "C:\web\web\hahaha_octane_codex\hahaha"
 
+php artisan hahaha:install:hahaha_octane_codex:git:clone_hahahalib "C:\web\web\hahaha_octane_codex\hahaha\library\hahahalib"
+
+php artisan hahaha:install:hahaha_octane_codex:composer:add_hahahalib_autoload "C:\web\web\hahaha_octane_codex\hahaha"
+
+
 cd "..\..\web\hahaha_octane_codex\hahaha"
 php artisan l_lib:db:delete_database --database="hahaha_octane_codex_hahaha" --connection="mariadb" --force=1
 php artisan l_lib:db:create_database --database="hahaha_octane_codex_hahaha" --connection="mariadb" --force=1

@@ -29,7 +29,10 @@
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/",
             "L_Lib\\": "library/hahaha_laravel_lib/"
-        }
+        },
+        "classmap": [
+            "library/hahahalib"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
