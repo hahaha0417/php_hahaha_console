@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Process;
 
 class hahaha_command_clone_hahaha_octane_codex extends Command
 {
-    protected $signature = 'hahaha:git:clone_hahaha_octane_codex {target_directory_ : The target directory for the cloned repository}';
+    protected $signature = 'hahaha:install:hahaha_octane_codex:git:clone_hahaha_octane_codex {target_directory_ : The target directory for the cloned repository}';
 
     protected $description = 'Clone the php_hahaha_octane_codex repository into the specified directory';
 
