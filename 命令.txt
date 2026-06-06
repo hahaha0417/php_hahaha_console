@@ -1,12 +1,12 @@
-php artisan hahaha:hahaha_octane_codex:git:clone_hahaha_octane_codex "C:\web\web\hahaha_octane_codex"
+php artisan hahaha:install:hahaha_octane_codex:git:clone_hahaha_octane_codex "C:\web\web\hahaha_octane_codex"
 
 php artisan hahaha:install:hahaha_octane_codex:generate_env_merge_two_env --base_env="..\..\setting\hahaha_octane_codex.env" --override_env="..\..\setting\hahaha_octane_codex_hahaha.env" --destination_env="..\..\web\hahaha_octane_codex\hahaha\.env"
 
 php artisan hahaha:install:hahaha_octane_codex:composer_install "..\..\web\hahaha_octane_codex\hahaha" --no_dev=2
 
-php artisan hahaha:hahaha_octane_codex:git:clone_laravel_lib "C:\web\web\hahaha_octane_codex\hahaha\library\hahaha_laravel_lib"
+php artisan hahaha:install:hahaha_octane_codex:git:clone_laravel_lib "C:\web\web\hahaha_octane_codex\hahaha\library\hahaha_laravel_lib"
 
-php artisan hahaha:hahaha_octane_codex:composer:add_l_lib_autoload "C:\web\web\hahaha_octane_codex\hahaha"
+php artisan hahaha:install:hahaha_octane_codex:composer:add_l_lib_autoload "C:\web\web\hahaha_octane_codex\hahaha"
 
 cd "..\..\web\hahaha_octane_codex\hahaha"
 php artisan l_lib:db:delete_database --database="hahaha_octane_codex_hahaha" --connection="mariadb" --force=1
@@ -29,7 +29,7 @@ php artisan l_lib:apache:create_vhost `
         --vhosts_path="C:/web/xampp/apache/conf/extra/httpd-vhosts.conf"
 
 New-Item -ItemType Directory `
-    -Path "../../log/hahaha_octane_codex/hahaha" `
+    -Path "../../../log/hahaha_octane_codex/hahaha" `
     -Force | Out-Null
 
 php artisan l_lib:apache:create_proxy_vhost `
@@ -40,11 +40,11 @@ php artisan l_lib:apache:create_proxy_vhost `
   --proxy_pass_reverse="http://127.0.0.1:10000/" `
   --force=1
 
-#----------------------------------------------------------------
-
 New-Item -ItemType Directory `
-    -Path "../../log/hahaha_octane_codex_proxy/hahaha" `
+    -Path "../../../log/hahaha_octane_codex_proxy/hahaha" `
     -Force | Out-Null
+
+#----------------------------------------------------------------
 
 Start-Process powershell `
     -Verb RunAs `

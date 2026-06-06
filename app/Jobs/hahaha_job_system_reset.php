@@ -15,6 +15,8 @@ class hahaha_job_system_reset implements ShouldQueue
 
     private const PWSH_PATH = 'C:\\Program Files\\PowerShell\\7\\pwsh.exe';
 
+    private const OCTANE_PROJECT_PATH = '..\\..\\web\\hahaha_octane_codex\\hahaha';
+
     public int $tries = 3;
 
     public int $timeout = 300;
@@ -77,12 +79,12 @@ class hahaha_job_system_reset implements ShouldQueue
                 ],
             ],
             [
-                'label_' => '../../web/hahaha_octane_codex/rr reset',
-                'path_' => base_path(),
+                'label_' => self::OCTANE_PROJECT_PATH.' rr reset',
+                'path_' => self::OCTANE_PROJECT_PATH,
                 'command_' => [
                     self::PWSH_PATH,
                     '-Command',
-                    './rr reset',
+                    '.\\rr reset',
                 ],
             ],
             [

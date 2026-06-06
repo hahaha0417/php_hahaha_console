@@ -9,6 +9,8 @@ use Tests\TestCase;
 
 class HahahaJobSystemResetTest extends TestCase
 {
+    private const OCTANE_PROJECT_PATH = 'C:\\web\\web\\hahaha_octane_codex\\hahaha';
+
     public function test_it_runs_the_expected_system_reset_commands(): void
     {
         Process::fake([
@@ -35,8 +37,8 @@ class HahahaJobSystemResetTest extends TestCase
             return $pending_process_->command === [
                 'C:\\Program Files\\PowerShell\\7\\pwsh.exe',
                 '-Command',
-                './rr reset',
-            ] && $pending_process_->path === base_path();
+                '.\\rr reset',
+            ] && $pending_process_->path === self::OCTANE_PROJECT_PATH;
         });
 
         Process::assertRan(function ($pending_process_) {
