@@ -66,7 +66,7 @@ class HahahaCommandRenameDatabaseTest extends TestCase
             ->with('from')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:rename_database', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:rename_database', [
             '--from_database' => 'from',
             '--to_database' => 'to',
             '--connection' => 'mariadb',
@@ -110,7 +110,7 @@ class HahahaCommandRenameDatabaseTest extends TestCase
             ->with('ALTER DATABASE "from_env" RENAME TO "to"')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:rename_database', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:rename_database', [
             '--to_database' => 'to',
         ])
             ->expectsOutputToContain('Database renamed: from_env -> to')
@@ -135,7 +135,7 @@ class HahahaCommandRenameDatabaseTest extends TestCase
         file_put_contents($source_database_path_, '');
 
         try {
-            $this->artisan('hahaha:install:hahaha_octaine_codex:db:rename_database', [
+            $this->artisan('hahaha:install:hahaha_octane_codex:db:rename_database', [
                 '--to_database' => 'database/to.sqlite',
             ])
                 ->expectsOutputToContain('Database renamed: database/from.sqlite -> database/to.sqlite')
@@ -153,7 +153,7 @@ class HahahaCommandRenameDatabaseTest extends TestCase
     {
         DB::shouldReceive('connection')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:rename_database')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:rename_database')
             ->expectsOutputToContain('The --to_database option is required.')
             ->assertFailed();
     }
@@ -166,7 +166,7 @@ class HahahaCommandRenameDatabaseTest extends TestCase
 
         DB::shouldReceive('connection')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:rename_database', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:rename_database', [
             '--from_database' => 'from',
             '--to_database' => 'to',
             '--connection' => 'missing_connection',
@@ -220,7 +220,7 @@ class HahahaCommandRenameDatabaseTest extends TestCase
             ->with('from')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:rename_database', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:rename_database', [
             '--from_database' => 'from',
             '--to_database' => 'to',
         ])

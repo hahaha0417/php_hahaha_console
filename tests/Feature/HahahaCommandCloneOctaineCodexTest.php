@@ -10,7 +10,7 @@ class HahahaCommandCloneOctaineCodexTest extends TestCase
 {
     public function test_it_clones_the_octaine_codex_repository_into_the_specified_relative_directory(): void
     {
-        $target_directory_ = base_path('library/hahaha_octaine_codex');
+        $target_directory_ = base_path('library/hahaha_octane_codex');
 
         File::shouldReceive('exists')
             ->once()
@@ -23,8 +23,8 @@ class HahahaCommandCloneOctaineCodexTest extends TestCase
             ),
         ]);
 
-        $this->artisan('hahaha:git:clone_hahaha_octaine_codex', [
-            'target_directory_' => 'library/hahaha_octaine_codex',
+        $this->artisan('hahaha:git:clone_hahaha_octane_codex', [
+            'target_directory_' => 'library/hahaha_octane_codex',
         ])
             ->expectsOutputToContain('Repository cloned to')
             ->assertSuccessful();
@@ -36,7 +36,7 @@ class HahahaCommandCloneOctaineCodexTest extends TestCase
 
             return $pending_process_->command[0] === 'git'
                 && $pending_process_->command[1] === 'clone'
-                && $pending_process_->command[2] === 'https://github.com/hahaha0417/php_hahaha_octaine_codex.git'
+                && $pending_process_->command[2] === 'https://github.com/hahaha0417/php_hahaha_octane_codex.git'
                 && $pending_process_->command[3] === $target_directory_
                 && $pending_process_->path === base_path();
         });
@@ -44,15 +44,15 @@ class HahahaCommandCloneOctaineCodexTest extends TestCase
 
     public function test_it_fails_when_the_target_directory_already_exists(): void
     {
-        $target_directory_ = base_path('library/hahaha_octaine_codex');
+        $target_directory_ = base_path('library/hahaha_octane_codex');
 
         File::shouldReceive('exists')
             ->once()
             ->with($target_directory_)
             ->andReturnTrue();
 
-        $this->artisan('hahaha:git:clone_hahaha_octaine_codex', [
-            'target_directory_' => 'library/hahaha_octaine_codex',
+        $this->artisan('hahaha:git:clone_hahaha_octane_codex', [
+            'target_directory_' => 'library/hahaha_octane_codex',
         ])
             ->expectsOutputToContain('Target directory already exists')
             ->assertFailed();
@@ -76,7 +76,7 @@ class HahahaCommandCloneOctaineCodexTest extends TestCase
             ),
         ]);
 
-        $this->artisan('hahaha:git:clone_hahaha_octaine_codex', [
+        $this->artisan('hahaha:git:clone_hahaha_octane_codex', [
             'target_directory_' => $target_directory_,
         ])
             ->expectsOutputToContain('clone failed')

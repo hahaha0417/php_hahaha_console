@@ -22,7 +22,7 @@ class HahahaCommandCreateDatabaseTest extends TestCase
                 'driver' => 'mysql',
                 'host' => '127.0.0.1',
                 'port' => '3306',
-                'database' => 'hahaha_octaine_codex',
+                'database' => 'hahaha_octane_codex',
                 'username' => 'root',
                 'password' => 'secret',
                 'charset' => 'utf8mb4',
@@ -48,11 +48,11 @@ class HahahaCommandCreateDatabaseTest extends TestCase
 
         $schema_builder_mock_->shouldReceive('createDatabase')
             ->once()
-            ->with('hahaha_octaine_codex')
+            ->with('hahaha_octane_codex')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:create_database')
-            ->expectsOutputToContain('Database created: hahaha_octaine_codex')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:create_database')
+            ->expectsOutputToContain('Database created: hahaha_octane_codex')
             ->assertSuccessful();
     }
 
@@ -73,7 +73,7 @@ class HahahaCommandCreateDatabaseTest extends TestCase
         File::delete($database_path_);
 
         try {
-            $this->artisan('hahaha:install:hahaha_octaine_codex:db:create_database')
+            $this->artisan('hahaha:install:hahaha_octane_codex:db:create_database')
                 ->expectsOutputToContain('Database created at')
                 ->assertSuccessful();
 
@@ -92,7 +92,7 @@ class HahahaCommandCreateDatabaseTest extends TestCase
 
         DB::shouldReceive('connection')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:create_database')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:create_database')
             ->expectsOutputToContain('Database connection is not configured: missing_connection')
             ->assertFailed();
     }
@@ -103,13 +103,13 @@ class HahahaCommandCreateDatabaseTest extends TestCase
             'database.default' => 'oracle',
             'database.connections.oracle' => [
                 'driver' => 'oracle',
-                'database' => 'hahaha_octaine_codex',
+                'database' => 'hahaha_octane_codex',
             ],
         ]);
 
         DB::shouldReceive('connection')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:create_database')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:create_database')
             ->expectsOutputToContain('Unsupported DB_CONNECTION value: oracle')
             ->assertFailed();
     }
@@ -154,7 +154,7 @@ class HahahaCommandCreateDatabaseTest extends TestCase
             ->with('test')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:create_database', ['--database' => 'test'])
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:create_database', ['--database' => 'test'])
             ->expectsOutputToContain('Database created: test')
             ->assertSuccessful();
     }
@@ -212,7 +212,7 @@ class HahahaCommandCreateDatabaseTest extends TestCase
             ->with('test')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:create_database', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:create_database', [
             '--database' => 'test',
             '--connection' => 'mariadb',
         ])

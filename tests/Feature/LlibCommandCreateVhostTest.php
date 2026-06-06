@@ -16,10 +16,10 @@ class LlibCommandCreateVhostTest extends TestCase
 
         $this->artisan('l_lib:apache:create_vhost', [
             '--port' => '10001',
-            '--document_root' => 'D:/web/web/hahaha_octaine_codex/hahaha/public',
-            '--error_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/error.log',
-            '--custom_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/access.log',
-            '--directory' => 'D:/web/web/hahaha_octaine_codex/hahaha',
+            '--document_root' => 'D:/web/web/hahaha_octane_codex/hahaha/public',
+            '--error_log' => 'D:/web/log/hahaha_octane_codex/hahaha/error.log',
+            '--custom_log' => 'D:/web/log/hahaha_octane_codex/hahaha/access.log',
+            '--directory' => 'D:/web/web/hahaha_octane_codex/hahaha',
             '--vhosts_path' => $vhosts_path_,
         ])
             ->expectsOutputToContain('VirtualHost appended to '.$vhosts_path_)
@@ -31,12 +31,12 @@ class LlibCommandCreateVhostTest extends TestCase
 Listen 10001
 <VirtualHost *:10001>
     ServerAdmin webmaster@dummy-host.example.com
-\tDocumentRoot "D:/web/web/hahaha_octaine_codex/hahaha/public"
+\tDocumentRoot "D:/web/web/hahaha_octane_codex/hahaha/public"
     ServerName dummy-host.example.com
     ServerAlias www.dummy-host.example.com
-    ErrorLog "D:/web/log/hahaha_octaine_codex/hahaha/error.log"
-    CustomLog "D:/web/log/hahaha_octaine_codex/hahaha/access.log" common
-\t<Directory "D:/web/web/hahaha_octaine_codex/hahaha">
+    ErrorLog "D:/web/log/hahaha_octane_codex/hahaha/error.log"
+    CustomLog "D:/web/log/hahaha_octane_codex/hahaha/access.log" common
+\t<Directory "D:/web/web/hahaha_octane_codex/hahaha">
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
@@ -60,10 +60,10 @@ CONF;
 
         $this->artisan('l_lib:apache:create_vhost', [
             '--port' => '10001',
-            '--document_root' => 'D:/web/web/hahaha_octaine_codex/hahaha/public',
-            '--error_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/error.log',
-            '--custom_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/access.log',
-            '--directory' => 'D:/web/web/hahaha_octaine_codex/hahaha',
+            '--document_root' => 'D:/web/web/hahaha_octane_codex/hahaha/public',
+            '--error_log' => 'D:/web/log/hahaha_octane_codex/hahaha/error.log',
+            '--custom_log' => 'D:/web/log/hahaha_octane_codex/hahaha/access.log',
+            '--directory' => 'D:/web/web/hahaha_octane_codex/hahaha',
             '--vhosts_path' => $vhosts_path_,
         ])
             ->expectsConfirmation('VirtualHost already exists for port [10001]. Do you want to overwrite it?', 'no')
@@ -96,10 +96,10 @@ CONF;
 
         $this->artisan('l_lib:apache:create_vhost', [
             '--port' => '10001',
-            '--document_root' => 'D:/web/web/hahaha_octaine_codex/hahaha/public',
-            '--error_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/error.log',
-            '--custom_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/access.log',
-            '--directory' => 'D:/web/web/hahaha_octaine_codex/hahaha',
+            '--document_root' => 'D:/web/web/hahaha_octane_codex/hahaha/public',
+            '--error_log' => 'D:/web/log/hahaha_octane_codex/hahaha/error.log',
+            '--custom_log' => 'D:/web/log/hahaha_octane_codex/hahaha/access.log',
+            '--directory' => 'D:/web/web/hahaha_octane_codex/hahaha',
             '--vhosts_path' => $vhosts_path_,
             '--force' => '1',
         ])
@@ -109,7 +109,7 @@ CONF;
         $actual_content_ = str_replace(["\r\n", "\r"], "\n", File::get($vhosts_path_));
 
         $this->assertStringContainsString('Listen 10001', $actual_content_);
-        $this->assertStringContainsString('DocumentRoot "D:/web/web/hahaha_octaine_codex/hahaha/public"', $actual_content_);
+        $this->assertStringContainsString('DocumentRoot "D:/web/web/hahaha_octane_codex/hahaha/public"', $actual_content_);
         $this->assertStringNotContainsString('DocumentRoot "D:/old/public"', $actual_content_);
     }
 
@@ -122,10 +122,10 @@ CONF;
 
         $this->artisan('l_lib:apache:create_vhost', [
             '--port' => '10001',
-            '--document_root' => 'D:/web/web/hahaha_octaine_codex/hahaha/public',
-            '--error_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/error.log',
-            '--custom_log' => 'D:/web/log/hahaha_octaine_codex/hahaha/access.log',
-            '--directory' => 'D:/web/web/hahaha_octaine_codex/hahaha',
+            '--document_root' => 'D:/web/web/hahaha_octane_codex/hahaha/public',
+            '--error_log' => 'D:/web/log/hahaha_octane_codex/hahaha/error.log',
+            '--custom_log' => 'D:/web/log/hahaha_octane_codex/hahaha/access.log',
+            '--directory' => 'D:/web/web/hahaha_octane_codex/hahaha',
             '--vhosts_path' => $vhosts_path_,
             '--force' => '3',
         ])

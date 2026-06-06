@@ -22,7 +22,7 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
             'driver' => 'mysql',
             'host' => '127.0.0.1',
             'port' => '3306',
-            'database' => 'hahaha_octaine_codex',
+            'database' => 'hahaha_octane_codex',
             'username' => 'root',
             'password' => 'secret',
             'charset' => 'utf8mb4',
@@ -47,11 +47,11 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
 
         $schema_builder_mock_->shouldReceive('dropDatabaseIfExists')
             ->once()
-            ->with('hahaha_octaine_codex')
+            ->with('hahaha_octane_codex')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:delete_database')
-            ->expectsOutputToContain('Database deleted: hahaha_octaine_codex')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:delete_database')
+            ->expectsOutputToContain('Database deleted: hahaha_octane_codex')
             ->assertSuccessful();
     }
 
@@ -73,7 +73,7 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
         file_put_contents($database_path_, '');
 
         try {
-            $this->artisan('hahaha:install:hahaha_octaine_codex:db:delete_database')
+            $this->artisan('hahaha:install:hahaha_octane_codex:db:delete_database')
                 ->expectsOutputToContain('Database deleted at')
                 ->assertSuccessful();
 
@@ -90,12 +90,12 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
         Config::set('database.default', 'oracle');
         Config::set('database.connections.oracle', [
             'driver' => 'oracle',
-            'database' => 'hahaha_octaine_codex',
+            'database' => 'hahaha_octane_codex',
         ]);
 
         DB::shouldReceive('connection')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:delete_database')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:delete_database')
             ->expectsOutputToContain('Unsupported DB_CONNECTION value: oracle')
             ->assertFailed();
     }
@@ -107,7 +107,7 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
 
         DB::shouldReceive('connection')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:delete_database')
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:delete_database')
             ->expectsOutputToContain('Unsupported DB_CONNECTION value: oracle')
             ->assertFailed();
     }
@@ -150,7 +150,7 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
             ->with('test')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:delete_database', ['--database' => 'test'])
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:delete_database', ['--database' => 'test'])
             ->expectsOutputToContain('Database deleted: test')
             ->assertSuccessful();
     }
@@ -193,7 +193,7 @@ class HahahaCommandDeleteDatabaseTest extends TestCase
             ->with('test')
             ->andReturnTrue();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:db:delete_database', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:db:delete_database', [
             '--database' => 'test',
             '--connection' => 'mariadb',
         ])

@@ -11,7 +11,7 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
     {
         $base_env_file_path_ = base_path('storage/app/base.env');
         $override_env_file_path_ = base_path('storage/app/override.env');
-        $destination_env_file_path_ = base_path('library/hahaha_octaine_codex/.env.destination');
+        $destination_env_file_path_ = base_path('library/hahaha_octane_codex/.env.destination');
         $destination_directory_ = dirname($destination_env_file_path_);
 
         File::shouldReceive('exists')
@@ -73,10 +73,10 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
                     ]);
             });
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:generate_env_merge_two_env', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:generate_env_merge_two_env', [
             '--base_env' => 'storage/app/base.env',
             '--override_env' => 'storage/app/override.env',
-            '--destination_env' => 'library/hahaha_octaine_codex/.env.destination',
+            '--destination_env' => 'library/hahaha_octane_codex/.env.destination',
         ])
             ->expectsOutputToContain('.env file generated at')
             ->assertSuccessful();
@@ -86,7 +86,7 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
     {
         $base_env_file_path_ = base_path('storage/app/base.env');
         $override_env_file_path_ = base_path('storage/app/override.env');
-        $destination_env_file_path_ = base_path('library/hahaha_octaine_codex/.env.destination');
+        $destination_env_file_path_ = base_path('library/hahaha_octane_codex/.env.destination');
         $destination_directory_ = dirname($destination_env_file_path_);
 
         File::shouldReceive('exists')
@@ -137,10 +137,10 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
                     ]);
             });
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:generate_env_merge_two_env', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:generate_env_merge_two_env', [
             '--base_env' => 'storage/app/base.env',
             '--override_env' => 'storage/app/override.env',
-            '--destination_env' => 'library/hahaha_octaine_codex/.env.destination',
+            '--destination_env' => 'library/hahaha_octane_codex/.env.destination',
         ])
             ->expectsOutputToContain('.env file generated at')
             ->assertSuccessful();
@@ -158,10 +158,10 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
         File::shouldReceive('get')->never();
         File::shouldReceive('put')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:generate_env_merge_two_env', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:generate_env_merge_two_env', [
             '--base_env' => 'storage/app/base.env',
             '--override_env' => 'storage/app/override.env',
-            '--destination_env' => 'library/hahaha_octaine_codex/.env.destination',
+            '--destination_env' => 'library/hahaha_octane_codex/.env.destination',
         ])
             ->expectsOutputToContain('Base .env file does not exist')
             ->assertFailed();
@@ -185,10 +185,10 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
         File::shouldReceive('get')->never();
         File::shouldReceive('put')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:generate_env_merge_two_env', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:generate_env_merge_two_env', [
             '--base_env' => 'storage/app/base.env',
             '--override_env' => 'storage/app/override.env',
-            '--destination_env' => 'library/hahaha_octaine_codex/.env.destination',
+            '--destination_env' => 'library/hahaha_octane_codex/.env.destination',
         ])
             ->expectsOutputToContain('Override .env file does not exist')
             ->assertFailed();
@@ -200,7 +200,7 @@ class HahahaCommandGenerateEnvMergeTwoEnvTest extends TestCase
         File::shouldReceive('get')->never();
         File::shouldReceive('put')->never();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:generate_env_merge_two_env')
+        $this->artisan('hahaha:install:hahaha_octane_codex:generate_env_merge_two_env')
             ->expectsOutputToContain('The --base_env option is required.')
             ->assertFailed();
     }

@@ -10,7 +10,7 @@ class HahahaCommandComposerInstallTest extends TestCase
 {
     public function test_it_runs_composer_install_with_no_dev_when_option_is_one(): void
     {
-        $project_path_ = base_path('library/hahaha_octaine_codex');
+        $project_path_ = base_path('library/hahaha_octane_codex');
 
         File::shouldReceive('isDirectory')
             ->once()
@@ -23,8 +23,8 @@ class HahahaCommandComposerInstallTest extends TestCase
             ),
         ]);
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:composer_install', [
-            'project_path_' => 'library/hahaha_octaine_codex',
+        $this->artisan('hahaha:install:hahaha_octane_codex:composer_install', [
+            'project_path_' => 'library/hahaha_octane_codex',
             '--no_dev' => '1',
         ])
             ->expectsOutputToContain('composer install completed.')
@@ -55,7 +55,7 @@ class HahahaCommandComposerInstallTest extends TestCase
             ),
         ]);
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:composer_install', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:composer_install', [
             'project_path_' => $project_path_,
             '--no_dev' => '2',
         ])
@@ -75,13 +75,13 @@ class HahahaCommandComposerInstallTest extends TestCase
     {
         File::shouldReceive('isDirectory')
             ->once()
-            ->with(base_path('library/hahaha_octaine_codex'))
+            ->with(base_path('library/hahaha_octane_codex'))
             ->andReturnTrue();
 
         Process::fake();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:composer_install', [
-            'project_path_' => 'library/hahaha_octaine_codex',
+        $this->artisan('hahaha:install:hahaha_octane_codex:composer_install', [
+            'project_path_' => 'library/hahaha_octane_codex',
             '--no_dev' => '3',
         ])
             ->expectsOutputToContain('The --no_dev option must be 1 or 2.')
@@ -92,7 +92,7 @@ class HahahaCommandComposerInstallTest extends TestCase
 
     public function test_it_fails_when_composer_install_fails(): void
     {
-        $project_path_ = base_path('library/hahaha_octaine_codex');
+        $project_path_ = base_path('library/hahaha_octane_codex');
 
         File::shouldReceive('isDirectory')
             ->once()
@@ -106,8 +106,8 @@ class HahahaCommandComposerInstallTest extends TestCase
             ),
         ]);
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:composer_install', [
-            'project_path_' => 'library/hahaha_octaine_codex',
+        $this->artisan('hahaha:install:hahaha_octane_codex:composer_install', [
+            'project_path_' => 'library/hahaha_octane_codex',
             '--no_dev' => '2',
         ])
             ->expectsOutputToContain('install failed')
@@ -125,7 +125,7 @@ class HahahaCommandComposerInstallTest extends TestCase
 
         Process::fake();
 
-        $this->artisan('hahaha:install:hahaha_octaine_codex:composer_install', [
+        $this->artisan('hahaha:install:hahaha_octane_codex:composer_install', [
             'project_path_' => $project_path_,
             '--no_dev' => '2',
         ])

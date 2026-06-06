@@ -10,7 +10,7 @@ class HahahaOctaineCodexCommandAddLLibAutoloadTest extends TestCase
 {
     public function test_it_updates_composer_json_for_the_specified_project_and_runs_dump_autoload(): void
     {
-        $project_path_ = 'C:\\web\\web\\hahaha_octaine_codex';
+        $project_path_ = 'C:\\web\\web\\hahaha_octane_codex';
         $composer_json_path_ = $project_path_.DIRECTORY_SEPARATOR.'composer.json';
         $composer_json_content_ = json_encode([
             'autoload' => [
@@ -45,7 +45,7 @@ class HahahaOctaineCodexCommandAddLLibAutoloadTest extends TestCase
             ),
         ]);
 
-        $this->artisan('hahaha:hahaha_octaine_codex:composer:add_l_lib_autoload', [
+        $this->artisan('hahaha:hahaha_octane_codex:composer:add_l_lib_autoload', [
             'project_path_' => $project_path_,
         ])
             ->expectsOutputToContain('composer.json updated and composer dump-autoload completed.')
