@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Console\Commands\install\hahaha_octaine_codex;
+namespace App\Console\Commands\install\hahaha_octane_codex;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Process;
 
-class hahaha_command_clone_hahaha_octaine_codex extends Command
+class hahaha_command_clone_hahaha_octane_codex extends Command
 {
-    protected $signature = 'hahaha:hahaha_octaine_codex:git:clone_hahaha_octaine_codex {target_directory_ : The target directory for the cloned repository}';
+    protected $signature = 'hahaha:git:clone_hahaha_octane_codex {target_directory_ : The target directory for the cloned repository}';
 
-    protected $description = 'Clone the php_hahaha_octaine_codex repository into the specified directory';
+    protected $description = 'Clone the php_hahaha_octane_codex repository into the specified directory';
 
     public function handle(): int
     {
         $target_directory_input_ = (string) $this->argument('target_directory_');
         $target_directory_ = $this->target_directory_resolve_($target_directory_input_);
-        $repository_url_ = 'https://github.com/hahaha0417/php_hahaha_octaine_codex.git';
+        $repository_url_ = 'https://github.com/hahaha0417/php_hahaha_octane_codex.git';
 
         if (File::exists($target_directory_)) {
             $this->components->error('Target directory already exists: '.$target_directory_);

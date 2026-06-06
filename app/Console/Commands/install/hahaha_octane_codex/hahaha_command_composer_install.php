@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\install\hahaha_octaine_codex;
+namespace App\Console\Commands\install\hahaha_octane_codex;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Process;
 
 class hahaha_command_composer_install extends Command
 {
-    protected $signature = 'hahaha:install:hahaha_octaine_codex:composer_install
+    protected $signature = 'hahaha:install:hahaha_octane_codex:composer_install
         {project_path_ : The project path where composer install should run}
         {--no_dev=2 : 1 adds --no-dev, 2 does not add --no-dev}';
 

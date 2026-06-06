@@ -11,6 +11,7 @@ php artisan hahaha:hahaha_octane_codex:composer:add_l_lib_autoload "C:\web\web\h
 cd "..\..\web\hahaha_octane_codex\hahaha"
 php artisan l_lib:db:delete_database --database="hahaha_octane_codex_hahaha" --connection="mariadb" --force=1
 php artisan l_lib:db:create_database --database="hahaha_octane_codex_hahaha" --connection="mariadb" --force=1
+
 php artisan migrate
 
 php artisan l_lib:app:hahaha-cache-ai-context
@@ -38,6 +39,8 @@ php artisan l_lib:apache:create_proxy_vhost `
   --proxy_pass="http://127.0.0.1:10000/" `
   --proxy_pass_reverse="http://127.0.0.1:10000/" `
   --force=1
+
+#----------------------------------------------------------------
 
 New-Item -ItemType Directory `
     -Path "../../log/hahaha_octane_codex_proxy/hahaha" `

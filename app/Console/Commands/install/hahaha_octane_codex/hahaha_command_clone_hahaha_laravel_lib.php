@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\install\hahaha_octaine_codex;
+namespace App\Console\Commands\install\hahaha_octane_codex;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Process;
 
 class hahaha_command_clone_hahaha_laravel_lib extends Command
 {
-    protected $signature = 'hahaha:hahaha_octaine_codex:git:clone_laravel_lib {target_path_}';
+    protected $signature = 'hahaha:hahaha_octane_codex:git:clone_laravel_lib {target_path_}';
 
     protected $description = 'Clone the php_hahaha_laravel_lib repository into the specified directory';
 

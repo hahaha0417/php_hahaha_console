@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Console\Commands\install\hahaha_octaine_codex;
+namespace App\Console\Commands\install\hahaha_octane_codex;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class hahaha_command_generate_env_merge_two_env extends Command
 {
-    protected $signature = 'hahaha:install:hahaha_octaine_codex:generate_env_merge_two_env
+    protected $signature = 'hahaha:install:hahaha_octane_codex:generate_env_merge_two_env
         {--base_env= : The base .env file path}
         {--override_env= : The override .env file path}
         {--destination_env= : The destination .env file path}';
