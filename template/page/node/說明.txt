@@ -1,0 +1,79 @@
+讀取AGENTS.md
+library\hahaha_laravel_lib\Console\Commands\ai\node
+新增laravel command
+產生laravel 專案分析快取，我要給codex處理時，加速和節省token，減少分析時間
+其中code/page採node制
+會有資料夾樹狀層，在尾端會有node資料夾
+底下遞迴會有
+hahaha_controller_xxx.php
+hahaha_view_xxx.blade.php
+hahaha_model_xxx.php
+hahaha_???_xxx.php
+走classmap方式(方便調整位置)
+幫我建立專案分析快取幫我在node/page (node)寫一個簡單頁面(按照node規則(mvc))
+model是用來存取資料庫的
+hahaha_model_product(跟laravel應該是相同用途)改為hahaha_config_product
+測試檔也移進node(那是基於node的測試)
+
+namespace hahaha\page\demo\product\node;
+幫我改為
+namespace hahaha\page\demo\node;
+
+再弄另外一個demo page
+hahaha_controller_xxx.php要在對應node底下controller資料夾下面
+hahaha_view_xxx.blade.phpnode要在對應node底下view資料夾下面
+...etc
+namespace一樣是classmap(不是psr4)
+node不用再多一個資料夾node
+product(node) 不用分資料夾，幫我復原
+code\page\demo\product\node
+code\page\demo\showcase\node
+不用多一層node資料夾(直接放在product & showcase底下)
+
+flat(node)幫我移除，我沒要那樣的規則
+product(node) 和 showcase(node) 路由不用加node
+
+將這兩個node移到template資料夾，未來要用它做頁面
+
+product(node) 和 showcase(node)
+namespace hahaha\page\demo\node;
+改為
+namespace hahaha\template\page\demo;
+
+Route::get('/page/demo/product', [hahaha_controller_product::class, 'Index'])->name('page.demo.product');
+Route::get('/page/demo/showcase', [hahaha_controller_showcase::class, 'Index'])->name('page.demo.showcase');
+路由/page/demo改為template/page/demo
+改為Route::group形式
+
+那兩個template背景幫我改黑色背景rgb(60, 60, 60)
+
+code/template/demo
+移到
+template/page/node
+
+template page product(node) 改名one
+template page showcase(node) 改名multiple
+
+
+---------------------------------------------------
+
+將node頁面規則寫回AGENTS.md
+並跟我說如果要使用node規則做page 要怎麼跟你說
+
+---------------------------------------------------
+
+已經補回 [AGENTS.md (line 231)](C:/web/web/hahaha_octane_codex/hahaha/AGENTS.md:231) 了，現在裡面除了 node / template page 規則，也多了一段「如何要求 Codex 建立 node page」。
+之後你只要這樣跟我說就可以：
+請用 node 規則幫我做一個 page，名稱 order_list，採 one，route 是 /template/page/demo/order-list，route name 是 template.page.demo.order_list。
+或：
+請用 node 規則幫我做一個 page，名稱 customer_report，採 multiple，要有 controller/view/config/test。
+如果你想講更短也可以：
+用 node 規則做一個 order_list page
+用 multiple node 規則做 customer_report
+從 node template 建一個 billing_center
+我收到這類需求時，會預設幫你一起做：
+建立 controller / view / config / test
+補 route
+刷新 composer dump-autoload
+重建 node 分析快取
+這次只有改 [AGENTS.md (line 231)](C:/web/web/hahaha_octane_codex/hahaha/AGENTS.md:231)，沒有跑測試。
