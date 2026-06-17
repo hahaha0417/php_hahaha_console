@@ -267,6 +267,11 @@ $this->app->singleton(Service::class, fn () => new Service(fn () => request()));
   - 主要用途：提供 Codex 先讀專案摘要與 node/page 樹狀分析，減少逐檔探索成本與 token 消耗
   - 目前輸出位置：`storage/app/ai-context/node/`
 - 規則：專案分析快取必須能辨識 `controller`、`view`、`config`、`test` 與其他 `hahaha_???_xxx.php` 類型檔案，並保留頁面樹狀結構摘要，方便 AI 快速判讀。
+- 規則：Codex 每次處理需求前，不論是 node 或非 node 的需求，應先讀 `storage/app/ai-context/node/work-target-analysis.md`，再讀 `storage/app/ai-context/node/page-node-analysis.md`，再讀 `storage/app/ai-context/node/project-analysis.md`，最後只打開和需求直接相關的 `controller`、`view`、`config`、`test` 檔案。
+  - 主要目的：先用快取縮小範圍，再進一步讀實際檔案，降低 token 消耗
+  - 建議順序：`storage/app/ai-context/node/work-target-analysis.md` → `storage/app/ai-context/node/page-node-analysis.md` → `storage/app/ai-context/node/project-analysis.md` → 需求直接相關檔案
+  - 適用範圍：包含 `template/`、`tool/`、`code/`、`library/`、`app/`、`routes/`、`resources/` 與其他需求相關區域
+  - 避免：一開始就大範圍逐檔掃描 `template/`、`tool/`、`code/`、`library/`、`app/`、`routes/`、`resources/`
 
 ## 如何要求 Codex 建立 node page
 
