@@ -1,0 +1,19 @@
+讀取AGENTS.md
+幫我新增skill 我要讀寫trello和jira和github和outlook和gmail和line幫我新增skill
+hahaha\library\hahaha_laravel_lib\Services\agents\skills
+service加在這
+你沒照我的風格寫
+我要讀寫trello和jira和github和outlook和gmail和line
+讀寫 圖片 card dashboard 常用的功能
+service幫我分類分資料夾
+service幫我備註(說明)和整理，service function也要幫我備註(說明)和整理
+讀寫 圖片 card dashboard 常用的功能
+command幫我分類分資料夾
+command幫我備註(說明)和整理，command function也要幫我備註(說明)和整理
+provider幫我分類分資料夾
+provider幫我備註(說明)和整理，provider function也要幫我備註(說明)和整理skill可以的話也幫我分類分資料夾
+幫每個 provider 各補一支 command，讓你可以直接從 artisan 呼叫這些 service
+
+hahaha\library\hahaha_laravel_lib
+Command,Service,Provider
+都要照我的風格寫

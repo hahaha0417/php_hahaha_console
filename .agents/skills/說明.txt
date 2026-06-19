@@ -1,0 +1,110 @@
+.agents/skills 使用說明
+
+這個目錄是本專案給 Codex 用的 skill 區。
+
+目的
+
+- 把常用工作整理成可重複使用的規則
+- 讓 Codex 在特定領域先讀對應 skill，再開始改檔
+- 減少每次都重講一次規則
+
+使用順序
+
+- 先讀 `AGENTS.md`
+- 先讀 `storage/app/ai-context/node/work-target-analysis.md`
+- 再讀 `storage/app/ai-context/node/page-node-analysis.md`
+- 再讀 `storage/app/ai-context/node/project-analysis.md`
+- 判斷這次需求屬於哪個領域
+- 讀取對應 skill 的 `SKILL.md`
+- 如果 `SKILL.md` 有指定 `references`，只讀這次需求真的用到的檔案
+- 再去打開需求直接相關的 controller、view、config、test 或其他檔案
+
+什麼時候要用 skill
+
+- 只要需求明確落在某個 skill 的範圍，就要先用 skill
+- 不要等卡住才用
+- 一次需求可以同時用多個 skill，但只讀有關的 skill
+
+目前 skills
+
+- `laravel-best-practices`
+  - Laravel PHP 開發、重構、review、controller、service、job、migration、query、validation、routing 等
+- `laravel-db-workflow`
+  - 資料表結構查看、唯讀查詢、migration、seeder、回填資料、資料修正流程
+- `tailwindcss-development`
+  - 有 `tailwind`、Blade/HTML 版面、card、grid、dashboard、表單、間距、字體、dark mode 等需求
+- `queue-redis-workflow`
+  - Laravel queue、failed jobs、queue connection、redis connection、queue clear、redis queue、queue viewer 相關流程
+- `trello-jira-workflow`
+  - Trello / Jira 相關讀寫流程
+- `trello-jira-github-outlook-gmail-line-workflow`
+  - Trello、Jira、GitHub、Outlook、Gmail、LINE 的 service / command / workflow 規則
+
+skill 基本結構
+
+- 一個 skill 一個資料夾
+- 至少要有 `SKILL.md`
+- 可以另外有 `references/`
+- `references/` 放補充規則、對照表、流程說明
+- 不要把很長的細節全部塞進 `SKILL.md`
+
+`SKILL.md` 要寫什麼
+
+- `name`
+  - skill 名稱
+- `description`
+  - 要清楚寫這個 skill 是做什麼
+  - 要清楚寫什麼情況要觸發這個 skill
+- 內文
+  - 寫操作流程
+  - 寫這個專案的限制
+  - 寫需要先讀哪些 reference
+  - 寫檔案應該放哪裡
+
+本專案寫 skill 的原則
+
+- 內容要短，夠用就好
+- 優先寫這個專案特有規則，不要重複常識
+- `description` 要能幫 Codex 正確觸發
+- `SKILL.md` 只放核心流程
+- 細節拆到 `references/`
+- 只放真的會被 Codex 用到的內容
+- 不要額外建立一堆 README、CHANGELOG、QUICK_REFERENCE
+
+讀取 references 的原則
+
+- `SKILL.md` 有點名要先讀的 reference，就先讀
+- 如果有多份 reference，只讀和本次需求直接相關的檔案
+- 不要整包全讀，避免浪費 context
+
+怎麼叫 Codex 使用 skill
+
+- 直接在需求中點出領域即可
+- 例如：
+  - `幫我調整 Laravel command，套用 laravel-best-practices`
+  - `幫我查資料表並規劃 migration，套用 laravel-db-workflow`
+  - `幫我改這個 dashboard 的 tailwind 排版`
+  - `幫我做 GitHub / Gmail workflow，套用 trello-jira-github-outlook-gmail-line-workflow`
+
+新增或修改 skill 時要注意
+
+- 先確認這個 skill 是不是已經存在
+- 先想清楚它要解決哪些重複需求
+- 先想清楚哪些內容應該放 `SKILL.md`
+- 先想清楚哪些內容應該放 `references/`
+- 命名清楚，讓人一看就知道用途
+- 修改後要回頭看 `description` 是否還能正確觸發
+
+這個專案的建議做法
+
+- Laravel backend 類需求，優先看 `laravel-best-practices`
+- 資料庫需求，優先看 `laravel-db-workflow`
+- Tailwind 版面需求，優先看 `tailwindcss-development`
+- Trello / Jira / GitHub / Outlook / Gmail / LINE 整合需求，優先看對應 workflow skill
+
+一句話版本
+
+- 先判斷需求領域
+- 先讀對應 skill
+- 只讀必要 references
+- 再改實際檔案
